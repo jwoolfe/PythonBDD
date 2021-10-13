@@ -1,0 +1,35 @@
+@all
+Feature:   Login Functionality
+            Here we will test login by admin,
+            super admin, guest and customers
+
+Background: Given User is on Login Page
+
+@regression
+Scenario Outline: Login by customers
+           When user enters username <username>
+           And user enters password <password>
+           And user clicks on signin button
+           Then User is logged in successfully
+
+    Example:
+            | username | password |
+            | testing  | abc@123 |
+            | testing1 | abc@1234 |
+            | testing2 | abc@12345 |
+
+@smoke @regression
+Scenario:   Login by Guest User
+            When User opens browser
+            And Enter URL
+            When User clicks on Guest User link
+            And User enters their email id
+            And Clicks on submit
+            Then User is logged in as a Guest User
+
+@smoke
+Scenario:   Login by Super Admin
+            When User enters username "testing"
+            And User enters password "abc@123"
+            And Clicks on login button
+            Then User is logged in successfully
