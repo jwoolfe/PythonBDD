@@ -46,7 +46,20 @@ def step_impl(context):
 def step_impl(context, total):
     assert (context.dealer_total == total)
 
-## NEW STEP
+
 @then('the {play} is correct')
 def step_impl(context, play):
     assert (context.dealer_play == play)
+
+@then('the dealer gives itself two cards')
+def step_impl(context):
+    assert (len(context.dealer.hand) == 2)
+
+
+@then('the dealer chooses a play')
+def step_impl(context):
+    assert (context.dealer.make_play() in ['stand', 'hit'])
+
+@then('the {total:d} is correct')
+def step_impl(context, total):
+    assert (context.dealer_total == total)

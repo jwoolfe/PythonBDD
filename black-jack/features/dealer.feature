@@ -1,5 +1,7 @@
+@high
 Feature: The dealer for the game of 21
 
+@dealcards
 Scenario: Deal initial cards
     Given a dealer
     When the round starts
@@ -18,6 +20,7 @@ Examples: Hands
     | Q,A       | 21    |
     | A,A,A     | 13    |
 
+@rules
 Scenario Outline: Dealer plays by the rules
     Given a hand <total>
     When the dealer determines a play
@@ -34,3 +37,5 @@ Examples: Hands
     | 20    | stand  |
     | 21    | stand  |
     | 22    | stand  |
+
+
